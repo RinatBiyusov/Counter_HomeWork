@@ -13,12 +13,12 @@ public class Counter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Произошел клик.");
             _isCounting = !_isCounting;
 
             if (_isCounting)
             {
                 StartCoroutine(nameof(Enumerator));
-
             }
             else
             {
