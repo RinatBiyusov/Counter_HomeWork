@@ -1,39 +1,39 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Counter : MonoBehaviour
 {
-    private readonly float _smoothDecreaseDuration = 0.5f;
+    private readonly WaitForSeconds _waitTime = new(0.5f);
     private float _number = 0;
-    private bool _isCounting = false;
+    private bool _isCounting = true;
+    private Coroutine _coroutine;
 
-    public float Number => _number;
+    public event Action<float> NumberCounted;
 
-    private void Update()
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Произошел клик.");
-            _isCounting = !_isCounting;
+        Debug.Log("Произошел клик.");
 
-            if (_isCounting)
-            {
-                StartCoroutine(nameof(Enumerator));
-            }
-            else
-            {
-                StopCoroutine(nameof(Enumerator));
-            }
+        if (_isCounting)
+        {
+            _coroutine = StartCoroutine(Increment());
+            _isCounting = false;
+        }
+        else
+        {
+            StopCoroutine(_coroutine);
+            _isCounting = true;
         }
     }
 
-    private IEnumerator Enumerator()
+    private IEnumerator Increment()
     {
         while (true)
         {
             _number++;
-
-            yield return new WaitForSeconds(_smoothDecreaseDuration);
+            NumberCounted?.Invoke(_number);
+            yield return _waitTime;
         }
     }
 }

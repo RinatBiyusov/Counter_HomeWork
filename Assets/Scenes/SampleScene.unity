@@ -267,8 +267,9 @@ GameObject:
   - component: {fileID: 604899995}
   - component: {fileID: 604899994}
   - component: {fileID: 604899993}
-  - component: {fileID: 604899997}
   - component: {fileID: 604899996}
+  - component: {fileID: 604899999}
+  - component: {fileID: 604899998}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -320,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 604899992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 685, y: 325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,13 +336,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 604899992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ce59ae6cf6d074684b0719a93749d3, type: 3}
+  m_Script: {fileID: 11500000, guid: ca30e5b98c4f0a54a9c8cba527280f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _smoothDecreaseDuration: 0.5
-  _counterText: {fileID: 366906960}
-  _counter: {fileID: 604899997}
---- !u!114 &604899997
+  _number: {fileID: 366906960}
+  _counter: {fileID: 604899999}
+--- !u!65 &604899998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604899992}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1400, y: 720, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &604899999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,7 +636,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
